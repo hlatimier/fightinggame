@@ -1,3 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Arcade Fighter - Character Select</title>
+
+<style>
+
+body {
+    margin:0;
+    background:#000;
+    font-family:"Arial Black", sans-serif;
+    color:white;
+    overflow:hidden;
+}
+
+
+/* ECRAN */
+.screen {
+    width:100%;
+    height:100vh;
+    background:linear-gradient(#111,#000);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+
+/* CARTE DU MONDE */
+.world-map {
+    width:90%;
+    height:230px;
+    margin-top:20px;
+    background:
+    radial-gradient(circle at 30% 40%,#3b8d3b 0 40px,transparent 41px),
+    radial-gradient(circle at 60% 30%,#228b22 0 50px,transparent 51px),
+    radial-gradient(circle at 80% 65%,#499c49 0 35px,transparent 36px),
+    linear-gradient(#1b5fa7,#0d3560);
+
+    border:5px solid #fff;
+    box-shadow:0 0 20px cyan;
+    position:relative;
+}
+
+
+/* continents */
+.country {
+    position:absolute;
+    color:white;
+    font-size:14px;
+    text-shadow:2px 2px black;
+}
+
+.japan {top:45px;right:120px;}
+.china {top:90px;right:250px;}
+.brazil {bottom:50px;left:250px;}
+.usa {top:80px;left:120px;}
+.france {top:60px;left:470px;}
+
+
+
+/* titre */
+
+.title {
+    margin-top:10px;
+    font-size:30px;
+    color:#ffd800;
+    text-shadow:3px 3px red;
+}
+
+
+
+/* SELECT */
+
+.select-area {
+
+    width:90%;
+    display:flex;
+    justify-content:center;
+    margin-top:20px;
+
+}
+
+
+.characters {
+
+display:grid;
+grid-template-columns:repeat(8,90px);
+gap:15px;
+
+}
+
+
+
+.char {
+
+height:100px;
+background:#222;
+border:3px solid #555;
+position:relative;
+cursor:pointer;
+text-align:center;
+
+}
+
+
+.char:hover {
+
+border-color:#fff;
+transform:scale(1.1);
+
+}
+
+
+.portrait {
+
+width:60px;
+height:60px;
+margin:8px auto;
+border-radius:50%;
+background:
+linear-gradient(#f2c49b,#c87b45);
+
+border:3px solid black;
+
+}
+
+
+/* couleurs différentes */
+
+.red .portrait{
+background:linear-gradient(#ff5555,#700);
+}
+
+.blue .portrait{
+background:linear-gradient(#55aaff,#0044aa);
+}
+
+.green .portrait{
+background:linear-gradient(#55dd55,#087000);
+}
+
+
+.name {
+
+font-size:11px;
+
+}
+
+
+
+/* curseur joueur */
+
+.cursor {
+
+position:absolute;
+border:4px solid yellow;
+width:84px;
+height:94px;
+pointer-events:none;
+animation:blink .5s infinite;
+
+}
+
+
+@keyframes blink {
+
+50%{opacity:.3;}
+
+}
+
+
+
+.info {
+
+margin-top:20px;
+font-size:22px;
+color:#00ffff;
+
+}
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<div class="screen">
+
+
+<div class="world-map">
+
+<div class="country usa">USA</div>
+<div class="country france">FRANCE</div>
+<div class="country china">CHINA</div>
+<div class="country japan">JAPAN</div>
+<div class="country brazil">BRAZIL</div>
+
+
+</div>
+
+
+
+<div class="title">
+PLAYER 1 SELECT
+</div>
+
+
+
+<div class="select-area">
+
+<div class="characters" id="characters">
+
+
+</div>
+
+</div>
+
+
+<div class="info" id="info">
+CHOISIS TON COMBATTANT
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+const fighters=[
+
+["RYU","red"],
+["KEN","red"],
+["CHUN LI","blue"],
+["GUILE","blue"],
+["ZANGIEF","red"],
+["DHALSIM","green"],
+["CAMMY","green"],
+["BALROG","red"],
+
+["SAGAT","red"],
+["VEGA","blue"],
+["BISON","red"],
+["AKIRA","green"],
+["TIGER","red"],
+["KIRA","blue"],
+["KUMA","green"],
+["MAX","red"]
+
+];
+
+
+let container=document.getElementById("characters");
+
+
+fighters.forEach((fighter,index)=>{
+
+
+let div=document.createElement("div");
+
+div.className="char "+fighter[1];
+
+div.innerHTML=
+`
+<div class="portrait"></div>
+<div class="name">${fighter[0]}</div>
+`;
+
+
+div.onclick=()=>{
+
+document.getElementById("info").innerHTML=
+"PLAYER 1 : "+fighter[0]+" READY!";
+
+};
+
+
+container.appendChild(div);
+
+
+});
 
 
 
