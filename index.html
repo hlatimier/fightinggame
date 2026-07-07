@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Character Select</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(#111, #333);
+    color: white;
+    overflow: hidden;
+}
+
+/* Titre */
+h1 {
+    text-align: center;
+    font-size: 45px;
+    margin: 20px;
+    text-transform: uppercase;
+    text-shadow: 4px 4px #000;
+}
+
+/* Zone principale */
+.select-screen {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 75vh;
+}
+
+/* Grilles personnages */
+.characters {
+    width: 40%;
+    display: grid;
+    grid-template-columns: repeat(3,120px);
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Carte personnage */
+.character {
+    width:120px;
+    height:120px;
+    background:#222;
+    border:4px solid #777;
+    cursor:pointer;
+    transition:0.2s;
+    position:relative;
+    overflow:hidden;
+}
+
+.character:hover {
+    border-color:#ffcc00;
+    transform:scale(1.1);
+}
+
+.character.selected {
+    border-color:red;
+    box-shadow:0 0 25px red;
+}
+
+/* Images */
+.character img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* VS */
+.vs {
+    font-size:100px;
+    font-weight:bold;
+    color:#ffcc00;
+    text-shadow:5px 5px red;
+}
+
+/* Nom */
+.name {
+    text-align:center;
+    margin-top:10px;
+    font-size:25px;
+    font-weight:bold;
+}
+
+/* Barre bas */
+.bottom {
+    text-align:center;
+}
+
+button {
+    padding:15px 40px;
+    font-size:25px;
+    background:red;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+button:hover {
+    background:#ff5500;
+}
+
+/* Portrait agrandi */
+.preview {
+    text-align:center;
+}
+
+.preview img {
+    width:250px;
+    height:250px;
+    border:6px solid white;
+    object-fit:cover;
+}
+
+</style>
+</head>
+
+
+<body>
+
+<h1>SELECT YOUR FIGHTER</h1>
+
+
+<div class="select-screen">
+
+    <!-- Joueur 1 -->
+    <div>
+        <div class="characters">
+
+            <div class="character" onclick="selectChar(this,'Ryu','https://picsum.photos/300?1')">
+                <img src="https://picsum.photos/300?1">
+            </div>
+
+            <div class="character" onclick="selectChar(this,'Ken','https://picsum.photos/300?2')">
+                <img src="https://picsum.photos/300?2">
+            </div>
+
+            <div class="character" onclick="selectChar(this,'Chun Li','https://picsum.photos/300?3')">
+                <img src="https://picsum.photos/300?3">
+            </div>
+
+            <div class="character" onclick="selectChar(this,'Guile','https://picsum.photos/300?4')">
+                <img src="https://picsum.photos/300?4">
+            </div>
+
+            <div class="character" onclick="selectChar(this,'Zangief','https://picsum.photos/300?5')">
+                <img src="https://picsum.photos/300?5">
+            </div>
+
+            <div class="character" onclick="selectChar(this,'Cammy','https://picsum.photos/300?6')">
+                <img src="https://picsum.photos/300?6">
+            </div>
+
+        </div>
+
+        <div class="name" id="name1">
+            PLAYER 1
+        </div>
+
+    </div>
+
+
+
+    <div class="vs">
+        VS
+    </div>
+
+
+
+    <!-- Joueur 2 -->
+    <div class="preview">
+
+        <img id="preview" src="https://picsum.photos/300">
+
+        <div class="name" id="name2">
+            PLAYER 2
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<div class="bottom">
+<button onclick="startFight()">
+FIGHT !
+</button>
+</div>
+
+
+
+<script>
+
+let current = 1;
+
+function selectChar(element,name,img){
+
+    document.querySelectorAll(".character")
+    .forEach(c=>c.classList.remove("selected"));
+
+    element.classList.add("selected");
+
+    if(current==1){
+        document.getElementById("name1").innerHTML=name;
+        current=2;
+    }
+    else{
+        document.getElementById("name2").innerHTML=name;
+        document.getElementById("preview").src=img;
+        current=1;
+    }
+}
+
+
+function startFight(){
+
+alert(
+"LE COMBAT COMMENCE !\n"+
+document.getElementById("name1").innerHTML+
+" VS "+
+document.getElementById("name2").innerHTML
+);
+
+}
+
+</script>
+
+
+</body>
+</html>
