@@ -1,59 +1,5 @@
 
-    <div class="preview">
 
-        <img id="preview" src="https://picsum.photos/300">
-
-        <div class="name" id="name2">
-            PLAYER 2
-        </div>
-
-    </div>
-
-
-</div>
-
-
-<div class="bottom">
-<button onclick="startFight()">
-FIGHT !
-</button>
-</div>
-
-
-
-<script>
-
-let current = 1;
-
-function selectChar(element,name,img){
-
-    document.querySelectorAll(".character")
-    .forEach(c=>c.classList.remove("selected"));
-
-    element.classList.add("selected");
-
-    if(current==1){
-        document.getElementById("name1").innerHTML=name;
-        current=2;
-    }
-    else{
-        document.getElementById("name2").innerHTML=name;
-        document.getElementById("preview").src=img;
-        current=1;
-    }
-}
-
-
-function startFight(){
-
-alert(
-"LE COMBAT COMMENCE !\n"+
-document.getElementById("name1").innerHTML+
-" VS "+
-document.getElementById("name2").innerHTML
-);
-
-}
 
 </script>
 
