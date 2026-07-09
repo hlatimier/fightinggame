@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
 <meta charset="UTF-8">
-<title>Arcade Fighter Character Select</title>
+<title>Arcade Fighter Select</title>
 
 <style>
 
@@ -14,8 +15,8 @@ body{
 
     margin:0;
     background:#000;
-    font-family:"Arial Black",Arial,sans-serif;
     color:white;
+    font-family:"Arial Black",Arial,sans-serif;
     overflow:hidden;
 
 }
@@ -25,142 +26,180 @@ body{
 
     width:100vw;
     height:100vh;
-    background:
-    radial-gradient(circle,#333,#000);
     display:flex;
     flex-direction:column;
     align-items:center;
 
+    background:
+    radial-gradient(circle,#333,#000);
+
 }
 
 
-/* =====================
-      CARTE DU MONDE
-===================== */
+
+/* ==========================
+        CARTE DU MONDE
+========================== */
 
 
 .world{
 
     width:900px;
     height:230px;
+
     margin-top:20px;
 
     background:
-    radial-gradient(circle at 20% 50%,#4b9b42 0 60px,transparent 61px),
-    radial-gradient(circle at 45% 40%,#4b9b42 0 80px,transparent 81px),
-    radial-gradient(circle at 70% 60%,#4b9b42 0 60px,transparent 61px),
-    linear-gradient(#1670b8,#06294b);
+
+    radial-gradient(circle at 20% 50%,#4c9d45 0 60px,transparent 61px),
+    radial-gradient(circle at 45% 40%,#4c9d45 0 80px,transparent 81px),
+    radial-gradient(circle at 70% 60%,#4c9d45 0 60px,transparent 61px),
+
+    linear-gradient(#1676bb,#06294b);
+
 
     border:6px solid white;
-    box-shadow:0 0 25px cyan;
+
+    box-shadow:
+    0 0 20px cyan;
+
 
     position:relative;
 
 }
 
 
-
 .place{
 
-    position:absolute;
-    font-size:18px;
-    color:white;
-    text-shadow:3px 3px black;
+position:absolute;
+
+font-size:18px;
+
+text-shadow:
+3px 3px black;
 
 }
 
 
 .usa{
-    left:100px;
-    top:80px;
+
+left:100px;
+top:80px;
+
 }
+
 
 .brazil{
 
-    left:260px;
-    bottom:35px;
+left:250px;
+bottom:40px;
 
 }
+
 
 .france{
 
-    left:420px;
-    top:60px;
+left:420px;
+top:60px;
 
 }
+
 
 .china{
 
-    right:250px;
-    top:90px;
+right:250px;
+top:90px;
 
 }
+
 
 .japan{
 
-    right:100px;
-    top:55px;
+right:100px;
+top:50px;
 
 }
+
 
 
 .plane{
 
-    position:absolute;
-    color:white;
-    font-size:30px;
-    animation:move 5s infinite linear;
+position:absolute;
+
+font-size:30px;
+
+animation:flight 6s infinite linear;
 
 }
 
 
-@keyframes move{
+
+@keyframes flight{
+
 
 0%{
-left:50px;
-top:20px;
+
+left:40px;
+top:30px;
+
 }
+
 
 50%{
-left:700px;
-top:120px;
+
+left:750px;
+top:130px;
+
 }
+
 
 100%{
-left:50px;
-top:20px;
-}
+
+left:40px;
+top:30px;
 
 }
 
 
-/* =====================
-       TITRE
-===================== */
+}
+
+
+
+
+/* ==========================
+          TITRE
+========================== */
 
 
 .title{
 
 font-size:35px;
+
 margin:15px;
 
 color:#ffe600;
+
 text-shadow:
+
 4px 4px red,
 0 0 15px yellow;
 
 }
 
 
-/* =====================
-       PERSONNAGES
-===================== */
+
+/* ==========================
+       GRILLE PERSONNAGES
+========================== */
 
 
 .grid{
 
 display:grid;
-grid-template-columns:repeat(8,100px);
+
+grid-template-columns:
+repeat(8,100px);
+
 gap:12px;
 
 }
@@ -169,55 +208,120 @@ gap:12px;
 
 .character{
 
+
 width:100px;
+
 height:120px;
+
 
 background:#111;
 
+
 border:3px solid #555;
+
 
 text-align:center;
 
+
+cursor:pointer;
+
+
+transition:.2s;
+
+
 position:relative;
+
 
 }
 
+
+
+/* SURVOL SOURIS ROUGE */
+
+
+.character:hover{
+
+
+background:#600;
+
+
+border-color:red;
+
+
+box-shadow:
+
+0 0 15px red,
+0 0 35px red;
+
+
+transform:scale(1.08);
+
+
+}
+
+
+
+/* SELECTION JOUEUR 1 */
 
 
 .character.selected{
 
+
 border:5px solid yellow;
 
-box-shadow:0 0 20px yellow;
+
+box-shadow:
+
+0 0 20px yellow;
+
 
 animation:blink .5s infinite;
 
+
 }
+
 
 
 @keyframes blink{
 
+
 50%{
+
 opacity:.5;
-}
 
 }
 
+
+}
+
+
+
+/* ==========================
+          PORTRAITS
+========================== */
 
 
 .face{
 
+
 width:70px;
+
 height:70px;
+
 
 margin:8px auto;
 
+
 border-radius:50%;
+
 
 border:3px solid black;
 
+
 background:
+
 linear-gradient(#ffd0a0,#9b542b);
+
 
 }
 
@@ -226,7 +330,8 @@ linear-gradient(#ffd0a0,#9b542b);
 .red .face{
 
 background:
-linear-gradient(#ff6666,#700);
+
+linear-gradient(#ff6666,#800);
 
 }
 
@@ -235,6 +340,7 @@ linear-gradient(#ff6666,#700);
 .blue .face{
 
 background:
+
 linear-gradient(#66bbff,#004);
 
 }
@@ -244,6 +350,7 @@ linear-gradient(#66bbff,#004);
 .green .face{
 
 background:
+
 linear-gradient(#55dd55,#064);
 
 }
@@ -257,22 +364,31 @@ font-size:13px;
 }
 
 
-/* =====================
-        INFO
-===================== */
+
+/* ==========================
+           TEXTE
+========================== */
 
 
 .info{
 
+
 margin-top:20px;
+
 
 font-size:25px;
 
+
 color:#00ffff;
 
-text-shadow:2px 2px blue;
+
+text-shadow:
+
+2px 2px blue;
+
 
 }
+
 
 
 </style>
@@ -327,7 +443,9 @@ JAPAN
 
 
 <div class="title">
+
 PLAYER 1 SELECT
+
 </div>
 
 
@@ -350,35 +468,55 @@ CHOISIS TON COMBATTANT
 
 
 
+
+
 <script>
+
 
 
 const fighters=[
 
+
 ["RYU","red"],
+
 ["KEN","red"],
+
 ["CHUN-LI","blue"],
+
 ["GUILE","blue"],
+
 ["ZANGIEF","red"],
+
 ["DHALSIM","green"],
+
 ["CAMMY","green"],
+
 ["BALROG","red"],
 
+
+
 ["SAGAT","red"],
+
 ["VEGA","blue"],
+
 ["BISON","red"],
+
 ["AKIRA","green"],
+
 ["TIGER","red"],
+
 ["KIRA","blue"],
+
 ["KUMA","green"],
+
 ["MAX","red"]
+
 
 ];
 
 
 
 const grid=document.getElementById("grid");
-
 
 
 let selected=0;
@@ -408,71 +546,101 @@ ${fighter[0]}
 `;
 
 
+
 div.onclick=function(){
 
+
 selected=index;
+
 update();
+
 
 };
 
 
+
 grid.appendChild(div);
+
 
 
 });
 
 
 
+
+
 function update(){
 
 
-document.querySelectorAll(".character")
-.forEach(c=>c.classList.remove("selected"));
+
+document
+.querySelectorAll(".character")
+.forEach(c=>
+
+c.classList.remove("selected")
+
+);
 
 
-document.querySelectorAll(".character")[selected]
+
+document
+.querySelectorAll(".character")[selected]
 .classList.add("selected");
 
 
+
 document.getElementById("info").innerHTML=
+
 "PLAYER 1 : "+fighters[selected][0];
 
 
+
 }
+
+
+
 
 
 
 document.addEventListener("keydown",function(e){
 
 
+
 let x=selected%8;
+
 let y=Math.floor(selected/8);
 
 
 
-if(e.key=="ArrowRight"){
+
+if(e.key=="ArrowRight")
 x++;
-}
 
-if(e.key=="ArrowLeft"){
+
+if(e.key=="ArrowLeft")
 x--;
-}
 
-if(e.key=="ArrowDown"){
+
+if(e.key=="ArrowDown")
 y++;
-}
 
-if(e.key=="ArrowUp"){
+
+if(e.key=="ArrowUp")
 y--;
-}
+
+
 
 
 
 if(x<0)x=7;
+
 if(x>7)x=0;
 
+
 if(y<0)y=1;
+
 if(y>1)y=0;
+
 
 
 
@@ -480,6 +648,8 @@ selected=y*8+x;
 
 
 update();
+
+
 
 
 
@@ -499,11 +669,15 @@ fighters[selected][0]+" READY !";
 
 
 
+
 update();
+
 
 
 </script>
 
 
+
 </body>
+
 </html>
