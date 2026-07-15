@@ -3,7 +3,280 @@
 <head>
 <meta charset="UTF-8">
 <title>Arcade Fighter Character Select</title>
-<link rel="stylesheet" href="style.css">
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+
+    margin:0;
+    background:#000;
+    font-family:"Arial Black",Arial,sans-serif;
+    color:white;
+    overflow:hidden;
+
+}
+
+
+.screen{
+
+    width:100vw;
+    height:100vh;
+    background:
+    radial-gradient(circle,#333,#000);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+}
+
+
+/* =====================
+      CARTE DU MONDE
+===================== */
+
+
+.world{
+
+    width:900px;
+    height:230px;
+    margin-top:20px;
+
+    background:
+    radial-gradient(circle at 20% 50%,#4b9b42 0 60px,transparent 61px),
+    radial-gradient(circle at 45% 40%,#4b9b42 0 80px,transparent 81px),
+    radial-gradient(circle at 70% 60%,#4b9b42 0 60px,transparent 61px),
+    linear-gradient(#1670b8,#06294b);
+
+    border:6px solid white;
+    box-shadow:0 0 25px cyan;
+
+    position:relative;
+
+}
+
+
+
+.place{
+
+    position:absolute;
+    font-size:18px;
+    color:white;
+    text-shadow:3px 3px black;
+
+}
+
+
+.usa{
+    left:100px;
+    top:80px;
+}
+
+.brazil{
+
+    left:260px;
+    bottom:35px;
+
+}
+
+.france{
+
+    left:420px;
+    top:60px;
+
+}
+
+.china{
+
+    right:250px;
+    top:90px;
+
+}
+
+.japan{
+
+    right:100px;
+    top:55px;
+
+}
+
+
+.plane{
+
+    position:absolute;
+    color:white;
+    font-size:30px;
+    animation:move 5s infinite linear;
+
+}
+
+
+@keyframes move{
+
+0%{
+left:50px;
+top:20px;
+}
+
+50%{
+left:700px;
+top:120px;
+}
+
+100%{
+left:50px;
+top:20px;
+}
+
+}
+
+
+/* =====================
+       TITRE
+===================== */
+
+
+.title{
+
+font-size:35px;
+margin:15px;
+
+color:#ffe600;
+text-shadow:
+4px 4px red,
+0 0 15px yellow;
+
+}
+
+
+/* =====================
+       PERSONNAGES
+===================== */
+
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(8,100px);
+gap:12px;
+
+}
+
+
+
+.character{
+
+width:100px;
+height:120px;
+
+background:#111;
+
+border:3px solid #555;
+
+text-align:center;
+
+position:relative;
+
+}
+
+
+
+.character.selected{
+
+border:5px solid yellow;
+
+box-shadow:0 0 20px yellow;
+
+animation:blink .5s infinite;
+
+}
+
+
+@keyframes blink{
+
+50%{
+opacity:.5;
+}
+
+}
+
+
+
+.face{
+
+width:70px;
+height:70px;
+
+margin:8px auto;
+
+border-radius:50%;
+
+border:3px solid black;
+
+background:
+linear-gradient(#ffd0a0,#9b542b);
+
+}
+
+
+
+.red .face{
+
+background:
+linear-gradient(#ff6666,#700);
+
+}
+
+
+
+.blue .face{
+
+background:
+linear-gradient(#66bbff,#004);
+
+}
+
+
+
+.green .face{
+
+background:
+linear-gradient(#55dd55,#064);
+
+}
+
+
+
+.name{
+
+font-size:13px;
+
+}
+
+
+/* =====================
+        INFO
+===================== */
+
+
+.info{
+
+margin-top:20px;
+
+font-size:25px;
+
+color:#00ffff;
+
+text-shadow:2px 2px blue;
+
+}
+
+
+</style>
+
 </head>
 
 
